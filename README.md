@@ -29,12 +29,6 @@ docker compose up -d
 
 That now installs dependencies in the container if needed and starts the Vite dev server automatically on `http://localhost:5173`.
 
-## View logs
-
-```bash
-docker compose logs -f
-```
-
 The container keeps `node_modules` in the named Docker volume mounted at `/workspace/node_modules`.
 
 ## Running the Container image
@@ -46,16 +40,6 @@ docker run --rm -p 8080:80 ghcr.io/ps2savetools/ps2-save-manager:latest
 
 Open `http://localhost:8080` after starting the container.
 
-## Running the fixture tests
-
-```bash
-docker compose exec dev npm test
-```
-
-The public test suite uses only self-contained, synthetic data. A larger private
-compatibility corpus can be kept locally under `validation/`; that directory and
-the original save fixtures are intentionally excluded from Git and from
-production container builds.
 
 ## Save file Notes
 

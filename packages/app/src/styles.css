@@ -38,7 +38,7 @@ button:focus-visible, a:focus-visible, .picker:focus-within, .entry-drop-zone:fo
 .new-save-button:disabled { opacity: .55; cursor: wait; }
 
 .app-body { display: grid; grid-template-columns: 215px minmax(0, 1fr); max-width: 1440px; margin: 0 auto; }
-.sidebar { min-height: calc(100vh - 60px); padding: 1.35rem .8rem; border-right: 1px solid var(--line); }
+.sidebar { min-height: calc(100vh - 60px); display: flex; flex-direction: column; padding: 1.35rem .8rem; border-right: 1px solid var(--line); }
 .sidebar-label, .section-kicker, .label { margin: 0; color: var(--muted); font-size: .72rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
 .sidebar-label { margin: .75rem .65rem .4rem; }
 .sidebar-item { display: flex; align-items: center; gap: .65rem; padding: .58rem .65rem; border-radius: 7px; color: var(--ink); text-decoration: none; font-weight: 600; }
@@ -46,6 +46,14 @@ button:focus-visible, a:focus-visible, .picker:focus-within, .entry-drop-zone:fo
 .sidebar-item.is-active { background: var(--brand-soft); color: var(--brand); }
 .sidebar-item span { width: 18px; text-align: center; font-size: 1.05rem; }
 .sidebar-copy { margin: .35rem .65rem; color: var(--muted); font-size: .78rem; line-height: 1.65; }
+.sidebar-project { margin-top: auto; padding-top: 1.5rem; }
+.sidebar-logo-link { display: block; width: min(148px, calc(100% - 1.3rem)); margin: 0 auto .85rem; border-radius: 9px; }
+.sidebar-logo-link:focus-visible { outline-offset: 4px; }
+.sidebar-logo { display: block; width: 100%; height: auto; }
+.project-links { display: grid; gap: .1rem; }
+.project-link { color: var(--muted); font-size: .8rem; }
+.project-link:first-child { color: var(--ink); }
+.project-link span { font-size: .86rem; }
 
 .workspace { min-width: 0; padding: 2rem clamp(1rem, 4vw, 3.25rem) 3.5rem; }
 .empty-state { min-height: 62vh; display: grid; place-items: center; align-content: center; text-align: center; color: var(--muted); }
@@ -156,9 +164,12 @@ button:focus-visible, a:focus-visible, .picker:focus-within, .entry-drop-zone:fo
 @media (max-width: 760px) {
   .app-bar { position: static; }
   .app-body { grid-template-columns: 1fr; }
-  .sidebar { min-height: auto; display: flex; gap: .25rem; padding: .55rem 1rem; border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
+  .sidebar { min-height: auto; flex-direction: row; gap: .25rem; padding: .55rem 1rem; border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
   .sidebar-label, .sidebar-copy { display: none; }
   .sidebar-item { white-space: nowrap; }
+  .sidebar-project { display: contents; }
+  .sidebar-logo-link { display: none; }
+  .project-links { display: flex; gap: .25rem; }
   .workspace { padding: 1.4rem 1rem 2.5rem; }
   .summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .summary-item:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }

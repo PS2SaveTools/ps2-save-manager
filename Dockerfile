@@ -31,10 +31,12 @@ LABEL org.opencontainers.image.description="Browser-based PS2 save file manager"
 LABEL org.opencontainers.image.licenses="MIT"
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --chmod=755 docker/40-ps2-save-manager-ready.sh /docker-entrypoint.d/40-ps2-save-manager-ready.sh
+COPY --chmod=755 docker/start-ps2-save-manager.sh /usr/local/bin/start-ps2-save-manager
 COPY --from=build /workspace/packages/app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
 HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --quiet --output-document=/dev/null http://127.0.0.1/ || exit 1
+  CMD wget --quiet --output-document=/dev/null http://127.0.0.1/healthz || exit 1
+
+CMD ["/usr/local/bin/start-ps2-save-manager"]

@@ -35,6 +35,7 @@ let iconTextureNearest = false;
 let iconWireframeEnabled = false;
 const BLANK_ICON_SYS_URL = new URL("./assets/default-icon.sys", import.meta.url).href;
 const BLANK_ICON_URL = new URL("./assets/default-icon.icn", import.meta.url).href;
+const PS2_SAVE_TOOLS_LOGO_URL = new URL("./assets/ps2-save-tools-logo.png", import.meta.url).href;
 
 interface IconScene {
   renderer: THREE.WebGLRenderer;
@@ -510,6 +511,20 @@ app.innerHTML = `
         <a class="sidebar-item" href="#icon-section"><span aria-hidden="true">⬡</span> 3D icon</a>
         <p class="sidebar-label">SUPPORTED</p>
         <p class="sidebar-copy">PSV · MCS · MAX · PWS<br />PSU · XPS · SPS · XPO<br />SPO · CBS · NPO · MD · P2M</p>
+        <div class="sidebar-project">
+          <a class="sidebar-logo-link" href="https://www.ps2savetools.com/" target="_blank" rel="noreferrer" aria-label="Visit PS2 Save Tools">
+            <img class="sidebar-logo" src="${PS2_SAVE_TOOLS_LOGO_URL}" alt="" />
+          </a>
+          <p class="sidebar-label">PROJECT</p>
+          <nav class="project-links" aria-label="Project links">
+            <a class="sidebar-item project-link" href="https://www.ps2savetools.com/" target="_blank" rel="noreferrer">
+              <span aria-hidden="true">↗</span> PS2 Save Tools
+            </a>
+            <a class="sidebar-item project-link" href="https://github.com/PS2SaveTools/PS2SaveManager" target="_blank" rel="noreferrer">
+              <span aria-hidden="true">&lt;/&gt;</span> Source on GitHub
+            </a>
+          </nav>
+        </div>
       </aside>
       <section class="workspace" id="status-panel" aria-live="polite">
         <div class="empty-state"><span class="empty-glyph" aria-hidden="true">↗</span><h1>Open a save to get started</h1><p>Inspect, edit and convert PlayStation save archives directly in your browser.</p></div>

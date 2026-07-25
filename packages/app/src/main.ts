@@ -25,15 +25,6 @@ import { appState, setAdvancedView } from "./state";
 import { closeDialogOnDataAction, showDialogError } from "./dialogs";
 import "./styles.css";
 
-declare global {
-  interface Window {
-    Buffer: typeof Buffer;
-  }
-}
-
-window.Buffer = Buffer;
-globalThis.Buffer = Buffer;
-
 const service = new SaveInspectionService();
 const exportService = new BrowserExportService();
 let currentIconScene: IconScene | undefined;

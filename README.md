@@ -19,6 +19,15 @@ code and documents found at [PS2 Save Tools](https://www.ps2savetools.com), as
 well as to compare save files exported from PS2 Save Builder to maximise
 compatibility.
 
+## Running the Container image (preferred)
+
+```bash
+docker pull ghcr.io/ps2savetools/ps2savemanager:latest
+docker run --rm -p 8080:80 ghcr.io/ps2savetools/ps2savemanager:latest
+```
+
+Open `http://localhost:8080` after starting the container.
+
 ## Running from source code
 
 From the repository root:
@@ -30,15 +39,6 @@ docker compose up -d
 That now installs dependencies in the container if needed and starts the Vite dev server automatically on `http://localhost:5173`.
 
 The container keeps `node_modules` in the named Docker volume mounted at `/workspace/node_modules`.
-
-## Running the Container image
-
-```bash
-docker pull ghcr.io/ps2savetools/ps2savemanager:latest
-docker run --rm -p 8080:80 ghcr.io/ps2savetools/ps2savemanager:latest
-```
-
-Open `http://localhost:8080` after starting the container.
 
 ## Licence
 

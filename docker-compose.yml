@@ -1,0 +1,18 @@
+name: ps2-save-manager
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    working_dir: /workspace
+    ports:
+      - "5173:5173"
+      - "4173:4173"
+    volumes:
+      - .:/workspace
+      - ps2_save_manager_node_modules:/workspace/node_modules
+
+volumes:
+  ps2_save_manager_node_modules:

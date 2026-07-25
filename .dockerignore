@@ -1,0 +1,16 @@
+node_modules
+packages/*/node_modules
+dist
+coverage
+nPort01_src
+validation
+test saves
+packages/app/public/fixtures
+packages/core/test/*.test.ts
+!packages/core/test/binary-writer.test.ts
+!packages/core/test/ps2-dirent.test.ts
+!packages/core/test/public-roundtrip.test.ts
+!packages/core/test/sjis.test.ts
+AGENTS.md
+.DS_Store
+.git

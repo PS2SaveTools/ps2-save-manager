@@ -1,0 +1,39 @@
+{
+  "name": "psv-exporter-js-scaffold",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit -p packages/core && tsc --noEmit -p packages/app",
+    "lint": "eslint packages scripts --max-warnings 0",
+    "test": "npm run typecheck && npm run lint && vitest run",
+    "test:watch": "vitest",
+    "build": "npm run build --workspace @psv-exporter/app",
+    "app:dev": "npm run dev --workspace @psv-exporter/app -- --host 0.0.0.0",
+    "app:build": "npm run build --workspace @psv-exporter/app",
+    "app:preview": "npm run preview --workspace @psv-exporter/app -- --host 0.0.0.0",
+    "validate:icon-texture": "vite-node scripts/validate-icon-texture.ts",
+    "validate:icon-render": "vite-node scripts/validate-icon-render.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/aes-js": "^3.1.4",
+    "@types/node": "^24.6.0",
+    "@types/three": "^0.185.1",
+    "eslint": "^10.7.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.63.0",
+    "vite": "^7.1.12",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "aes-js": "^3.1.2",
+    "pngjs": "^7.0.0",
+    "three": "^0.184.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
+  }
+}
